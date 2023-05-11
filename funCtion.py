@@ -101,11 +101,25 @@
 # x = input("Enter value: ")
 # count(x)
 
-def myfunction(num):
-    rev = 0
-    while(num>0):
-        digit= num%10
-        rev =(rev*10)+digit
-        num= num//10
-    return rev
-print(myfunction(4567))
+# def myfunction(num):
+#     rev = 0
+#     while(num>0):
+#         digit= num%10
+#         rev =(rev*10)+digit
+#         num= num//10
+#     return rev
+# print(myfunction(4567))
+
+def outer_fun():
+    x=777
+    def inner_fun():
+        global y
+        y= 100
+        x=700
+        print("inside inner function:",x,y)
+    inner_fun()
+    def myfun():
+        print("**************",y)
+    myfun()
+    print("inside outer function",x)
+outer_fun()
